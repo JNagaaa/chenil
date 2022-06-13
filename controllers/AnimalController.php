@@ -21,7 +21,9 @@ class AnimalController extends Controller {
        $person = $data['person_id'] ? Person::find($data['person_id']) : false;
        $nom = $data['nom'] ? $data['nom'] : false;
        $sexe = $data['sexe'] ? $data['sexe'] : false;
-       $sterilise = $data['sterilise'] ? $data['sterilise'] : false;
+       if(!isset($data['sterilise'])){
+        $sterilise = 0;
+       }
        $puce = $data['puce'] ? $data['puce'] : false;
        $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $person);
        $animal->save();
@@ -44,7 +46,9 @@ class AnimalController extends Controller {
         $animal->person = $data['person_id'] ? Person::find($data['person_id']) : $animal->person;
         $animal->nom = $data['nom'] ? $data['nom'] : $animal->nom;
         $animal->sexe = $data['sexe'] ? $data['sexe'] : $animal->sexe;
-        $animal->sterilise = $data['sterilise'] ? $data['sterilise'] : $animal->sterilise;
+        if(!isset($data['sterilise'])){
+            $animal->sterilise = 0;
+           }
         $animal->puce = $data['puce'] ? $data['puce'] : $animal->puce;
 
 
