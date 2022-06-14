@@ -26,6 +26,5 @@
             <a href="index.php?ctlr=animals&action=create">CREATE</a>
         </ul>
     <?php endif; ?>
-    <?php var_dump($animals); ?>
 </body>
 </html>

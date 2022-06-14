@@ -13,7 +13,7 @@
     <?php if (isset($people)): ?>
         <ul>
             <?php foreach($people as $person): ?>
-                <li><a href="index.php?ctlr=people&action=show&id=<?= $person->id; ?>"><?= $person->nom; ?></a>
+                <li><a href="index.php?ctlr=people&action=show&id=<?= $person->id; ?>"><?= $person->prenom ?> <?= $person->nom; ?></a>
                     <a href="index.php?ctlr=people&action=edit&id=<?= $person->id; ?>">MODIF</a>
                     <form action="index.php" method="POST">
                         <input type="hidden" name="ctlr" value="people">

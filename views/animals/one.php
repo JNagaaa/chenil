@@ -10,7 +10,7 @@
     <a href="http://chenil/index.php?ctlr=animals&action=index">Retour à la liste des animaux</a>
     <h2><?= $animal->nom; ?></h2>
     <?php if ($animal->person): ?>
-        <h3>Propriétaire: <?= $animal->person->prenom; ?> <?= $animal->person->nom ?></h3>
+        <h3>Propriétaire: <a href="index.php?ctlr=people&action=show&id=<?= $animal->person->id ?>"><?= $animal->person->prenom; ?> <?= $animal->person->nom ?></h3></a>
         <?php else: false; ?>
     <?php endif; ?>
         <button class="infosone">Autres animaux de <?= $animal->person->prenom ?> <?= $animal->person->nom ?></button>
@@ -25,7 +25,6 @@
             <?php endforeach; ?>
         </div>
         </ul>
-        <?php var_dump($animal); ?>
 
 </body>
 </html>

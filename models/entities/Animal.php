@@ -37,23 +37,6 @@ class Animal extends Entity {
             return $this->$prop;
         }
     }
-
-    
-    protected function sejours () {
-        if ($this->sejours) {
-            return $this->sejours;
-        }
-        $this->sejours = Sejour::where('animal_id', $this->id);
-        return $this->sejours;
-    }
-    
-    protected function person () {
-        if($this->person instanceof Person) {
-            return $this->person;
-        }
-        $this->person = Person::find($this->person);
-        return $this->person;
-    }
 }
 
 
