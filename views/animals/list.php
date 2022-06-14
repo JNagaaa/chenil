@@ -14,16 +14,16 @@
         <ul>
             <?php foreach($animals as $animal): ?>
                 <li><a href="index.php?ctlr=animals&action=show&id=<?= $animal->id; ?>"><?= $animal->nom; ?></a>
-                    <a href="index.php?ctlr=animals&action=edit&id=<?= $animal->id; ?>">MODIF</a>
+                    <a href="index.php?ctlr=animals&action=edit&id=<?= $animal->id; ?>">Modifier</a>
                     <form action="index.php" method="POST">
                         <input type="hidden" name="ctlr" value="animals">
                         <input type="hidden" name="action" value="destroy">
                         <input type="hidden" name="id" value="<?= $animal->id; ?>">
-                        <input type="submit" value="SUPPR">
+                        <input type="submit" value="Supprimer">
                     </form>
                 </li>
             <?php endforeach; ?>
-            <a href="index.php?ctlr=animals&action=create">CREATE</a>
+            <a href="index.php?ctlr=animals&action=create">Ajouter</a>
         </ul>
     <?php endif; ?>
 </body>
