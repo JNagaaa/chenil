@@ -29,7 +29,10 @@ class Animal extends Entity {
     public function __get ($prop) {
         if (property_exists($this, $prop)) {
             if ($prop == "person") {
-                return $this->person();
+                return Person::find($this->person);
+            }
+            if ($prop == "sejours"){
+                return Sejour::where('animal_id', $this->id);
             }
             return $this->$prop;
         }

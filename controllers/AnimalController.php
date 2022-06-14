@@ -18,12 +18,13 @@ class AnimalController extends Controller {
     }
     
     public function store ($data) {
-       $person = $data['person_id'] ? Person::find($data['person_id']) : false;
+       $personToStore = Person::find($data['person_id']);
+       $personID = $personToStore->id;
        $nom = $data['nom'] ? $data['nom'] : false;
        $sexe = $data['sexe'] ? $data['sexe'] : false;
        $sterilise = isset($data['sterilise']) ? $data['sterilise'] : false;
        $puce = $data['puce'] ? $data['puce'] : false;
-       $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $person);
+       $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $personID);
        $animal->save();
        return $this->index();
     }
@@ -41,7 +42,9 @@ class AnimalController extends Controller {
         }
         
         
-        $animal->person = $data['person_id'] ? Person::find($data['person_id']) : $animal->person;
+        $personToUpdate = Person::find($data['person_id']);
+        $personToUpdateID = $personToUpdate->id;
+        $animal->person = $personToUpdateID;
         $animal->nom = $data['nom'] ? $data['nom'] : $animal->nom;
         $animal->sexe = $data['sexe'] ? $data['sexe'] : $animal->sexe;
         $animal->sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
