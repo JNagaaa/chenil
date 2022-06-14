@@ -17,7 +17,7 @@
    <input id="animal-gender" type="text" name="sexe" value="<?= $animal->sexe; ?>">
 
    <label for="animal-steri">Stérilisé: </label>
-   <input id="animal-steri" type="checkbox" name="sterilise" value="<?= $animal->sterilise; ?>">
+   <input id="animal-steri" type="checkbox" name="sterilise" value="1">
 
    <label for="animal-chip">N° de puce: </label>
    <input id="animal-chip" type="text" name="puce" value="<?= $animal->puce; ?>">
