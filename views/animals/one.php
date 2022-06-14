@@ -9,6 +9,9 @@
 <body>
     <a href="http://chenil/index.php?ctlr=animals&action=index">Retour à la liste des animaux</a>
     <h2><?= $animal->nom; ?></h2>
+    <p>Sexe: <?= $animal->sexe ?></p>
+    <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
+    <p>Numéro de puce: <?= $animal->puce ?></p>
     <?php if ($animal->person): ?>
         <h3>Propriétaire: <a href="index.php?ctlr=people&action=show&id=<?= $animal->person->id ?>"><?= $animal->person->prenom; ?> <?= $animal->person->nom ?></h3></a>
         <?php else: false; ?>

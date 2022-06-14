@@ -10,6 +10,8 @@
        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
    </ul>
+    <?php if(isset($_POST['doublon'])): ?><b><p style="color:red">Cet animal est déjà enregistré</p></b>
+    <?php endif; unset($_POST['doublon']); ?>
     <?php if (isset($animals)): ?>
         <ul>
             <?php foreach($animals as $animal): ?>

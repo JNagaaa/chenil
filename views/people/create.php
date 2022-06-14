@@ -10,10 +10,10 @@
    <input type="hidden" name="action" value="store">
    
    <label for="person-name">Nom du propriétaire: </label>
-   <input id="person-name" type="text" name="nom" value="">
+   <input id="person-name" type="text" name="nom" style="text-transform: capitalize;" value="">
    
    <label for="person-surname">Prénom du propriétaire: </label>
-   <input id="person-surname" type="text" name="prenom" value="">
+   <input id="person-surname" type="text" name="prenom" style="text-transform: capitalize;" value="">
   
    <label for="person-birth">Date de naissance: </label>
    <input type="date" id="person-birth" name="naissance" value="">

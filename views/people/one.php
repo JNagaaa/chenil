@@ -7,9 +7,9 @@
 <body>
     <a href="http://chenil/index.php?ctlr=people&action=index">Retour à la liste des propriétaires</a>
     <h2><?= $person->prenom; ?> <?= $person->nom ?></h2>
-<p>Date de naissance: <?= $person->naissance ?></p>
+<p>Date de naissance: <?= str_replace('-', '/', date('d-m-Y', strtotime($person->naissance))) ?></p>
 <p>Adresse mail: <?= $person->mail ?></p>
-<p>Numéro de téléphone: 0<?= $person->telephone ?></p>
+<p>Numéro de téléphone: 0<?= substr($person->telephone, 0, 3) . "/" . substr($person->telephone,3, 2) . "." . substr($person->telephone,5,2) . "." . substr($person->telephone,7); ?></p>
 
     <ul>
         <?php if($person->animals): ?>

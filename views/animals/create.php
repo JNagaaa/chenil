@@ -13,7 +13,10 @@
    <input id="animal-name" type="text" name="nom" value="">
    
    <label for="animal-gender">Sexe de l'animal: </label>
-   <input id="animal-gender" type="text" name="sexe" value="">
+   <select id="animal-gender" type="text" name="sexe" value="">
+    <option value="Mâle">Mâle</option>
+    <option value="Femee">Femelle</option>
+    </select>
   
    <label for="animal-steri">Stérilisé: </label>
    <input type="checkbox" id="animal-steri" name="sterilise" value="1">

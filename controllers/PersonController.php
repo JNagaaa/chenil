@@ -16,15 +16,28 @@ class PersonController extends Controller {
     }
     
     public function store ($data) {
-        if($data["nom"]) {
-            $dateFR = str_replace('-', '/', date('d-m-Y', strtotime($data['naissance'])));
-            $data["naissance"] = $dateFR;
-            var_dump($data);
-            $person = new Person(0, $data["nom"], $data["prenom"], $data["naissance"], $data["mail"], $data["telephone"]);
-            $person->save();
+        $data['nom'] = ucfirst($data['nom']);
+        $data['prenom'] = ucfirst($data['prenom']);
+        $peopleNames = [];
+        $peopleFirstNames = [];
+        $objectPeople = Person::all();
+        foreach($objectPeople as $objectPerson){
+            array_push($peopleNames, $objectPerson->nom);
         }
-        return $this->index();
+        foreach($objectPeople as $objectPerson){
+            array_push($peopleFirstNames, $objectPerson->prenom);
+        }
+        if(in_array($data['nom'], $peopleNames) && in_array($data['prenom'], $peopleFirstNames)){
+            $_POST['doublon'] = "doublon";
+            var_dump($_POST);
+            return $this->index();
+        }else{                
+            $person = new Person(0, $data["nom"], $data["prenom"], $data["naissance"], $data["mail"], $data["telephone"]);
+            $person->save();   
+            return $this->index();
+            }   
     }
+    
     
 
     public function edit ($id) {
