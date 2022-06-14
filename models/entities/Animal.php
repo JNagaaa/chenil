@@ -23,7 +23,7 @@ class Animal extends Entity {
     }
     
     public function __toString () {
-        return $this->nom. $this->sexe. $this->sterilise. $this->puce." (Propriétaire: ". $this->person .")";
+        return $this->nom. $this->sexe. $this->puce." (Propriétaire: ". $this->person .")";
     }
     
     public function __get ($prop) {
@@ -35,14 +35,6 @@ class Animal extends Entity {
         }
     }
 
-    public function __get2 ($prop) {
-        if (property_exists($this, $prop)) {
-            if ($prop == "sejours") {
-                return $this->sejours();
-            }
-            return $this->$prop;
-        }
-    }
     
     protected function sejours () {
         if ($this->sejours) {
