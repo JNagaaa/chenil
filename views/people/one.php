@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= $person->nom; ?></title>
+    <title><?= $person->prenom; ?> <?= $person->nom; ?></title>
 </head>
 <body>
     <a href="http://chenil/index.php?ctlr=people&action=index">Retour à la liste des propriétaires</a>

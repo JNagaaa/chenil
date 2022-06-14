@@ -29,13 +29,12 @@ class PersonController extends Controller {
         }
         if(in_array($data['nom'], $peopleNames) && in_array($data['prenom'], $peopleFirstNames)){
             $_POST['doublon'] = "doublon";
-            var_dump($_POST);
             return $this->index();
         }else{                
             $person = new Person(0, $data["nom"], $data["prenom"], $data["naissance"], $data["mail"], $data["telephone"]);
             $person->save();   
-            return $this->index();
-            }   
+            return header('Location: index.php?ctlr=people&action=index');
+        }   
     }
     
     
@@ -59,7 +58,7 @@ class PersonController extends Controller {
         $person->telephone = $data['telephone'] ? $data['telephone'] : $person->telephone;
 
         $person->save();
-        return $this->index();
+        return header('Location: index.php?ctlr=people&action=index');
     }
 
     public function destroy ($id) {
@@ -68,7 +67,7 @@ class PersonController extends Controller {
             return false;
         }
         $person->delete();
-        return $this->index();
+        return header('Location: index.php?ctlr=people&action=index');
         
     }
 

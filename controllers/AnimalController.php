@@ -25,7 +25,7 @@ class AnimalController extends Controller {
         }
         if(in_array($data['puce'], $animalChips)){
             $_POST['doublon'] = "doublon";
-            return $this->index();
+            return header('Location: index.php?ctlr=animals&action=index');
         }else{
        $animalPersonToStore = Person::find($data['person_id']);
        $animalPersonID = $animalPersonToStore->id;
@@ -35,7 +35,7 @@ class AnimalController extends Controller {
        $puce = $data['puce'] ? $data['puce'] : false;
        $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $animalPersonID);
        $animal->save();
-       return $this->index();
+       return header('Location: index.php?ctlr=animals&action=index');
         }
     }
     
@@ -59,11 +59,8 @@ class AnimalController extends Controller {
         $animal->sexe = $data['sexe'] ? $data['sexe'] : $animal->sexe;
         $animal->sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
         $animal->puce = $data['puce'] ? $data['puce'] : $animal->puce;
-
-
-
         $animal->save();
-        return $this->index();
+        return header('Location: index.php?ctlr=animals&action=index');
     }
     
     public function destroy ($id) {
@@ -72,6 +69,6 @@ class AnimalController extends Controller {
             return false;
         }
         $animal->delete();
-        return $this->index();
+        return header('Location: index.php?ctlr=animals&action=index');
     }
 }
