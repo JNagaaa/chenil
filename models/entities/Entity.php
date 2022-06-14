@@ -1,5 +1,5 @@
 <?php
-
+//include('Strategy.php');
 abstract class Entity implements EntityInterface {
     protected $dao;
     

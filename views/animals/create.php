@@ -23,6 +23,13 @@
   
    <label for="animal-chip">N° de puce: </label>
    <input id="animal-chip" type="text" name="puce" value="">
+
+   <label for="animal-type">Type de l'animal: </label>
+   <select id="animal-type" type="text" name="type" value="">
+    <option value="Chat">Chat</option>
+    <option value="Chien">Chien</option>
+    <option value="Oiseau">Oiseau</option>
+    </select>
    
    <label for="animal-proprio">Propriétaire de l'animal</label>
    <select name="person_id" id="animal-proprio">

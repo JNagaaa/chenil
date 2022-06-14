@@ -12,6 +12,21 @@
     <p>Sexe: <?= $animal->sexe ?></p>
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
+    <p>Type de l'animal: <?= $animal->type ?></p>
+    <?php
+    include('../models/entities/Strategy.php');
+    if($animal->type == "Chat"){
+        $cat = new Cat();
+        $cat->speak(); $cat->size(); $cat->location();
+    }else if($animal->type == "Chien"){
+        $dog = new Dog();
+        $dog->speak(); $dog->size(); $dog->location();
+    }else if($animal->type == "Oiseau"){
+        $bird = new Bird();
+        $bird->speak(); $bird->size(); $bird->location();
+    }
+    ?>
+
     <?php if ($animal->person): ?>
         <h3>Propriétaire: <a href="index.php?ctlr=people&action=show&id=<?= $animal->person->id ?>"><?= $animal->person->prenom; ?> <?= $animal->person->nom ?></h3></a>
         <?php else: false; ?>

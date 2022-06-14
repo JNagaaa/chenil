@@ -18,7 +18,10 @@ class AnimalDAO extends DAO {
                 $data['sexe'],
                 $data['sterilise'],
                 $data['puce'],
-                $data['person_id']
+                $data['type'],
+                $data['person_id'],
+                false
+                
             );
         }
         return false;
@@ -31,11 +34,11 @@ class AnimalDAO extends DAO {
             return false;
         }
         if ($animal->person) {
-            $statement = $this->db->prepare("INSERT INTO {$this->table} (nom, sexe, sterilise, puce, person_id) VALUES (?, ?, ?, ?, ?)");
-            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->person->id], $statement);
+            $statement = $this->db->prepare("INSERT INTO {$this->table} (nom, sexe, sterilise, puce, type, person_id) VALUES (?, ?, ?, ?, ?, ?)");
+            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->type, $animal->person->id], $statement);
         } else {
-            $statement = $this->db->prepare("INSERT INTO {$this->table} (nom, sexe, sterilise, puce) VALUES (?, ?, ?, ?)");
-            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce], $statement);
+            $statement = $this->db->prepare("INSERT INTO {$this->table} (nom, sexe, sterilise, puce, type) VALUES (?, ?, ?, ?, ?)");
+            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->type], $statement);
         }
         
     }
@@ -47,11 +50,11 @@ class AnimalDAO extends DAO {
         }
         
         if ($animal->person) {
-            $statement = $this->db->prepare("UPDATE {$this->table} SET nom = ?, sexe = ?, sterilise = ?, puce = ?, person_id = ? WHERE id = ?");
-            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->person->id, $animal->id], $statement);
+            $statement = $this->db->prepare("UPDATE {$this->table} SET nom = ?, sexe = ?, sterilise = ?, puce = ?, type = ?, person_id = ? WHERE id = ?");
+            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->type, $animal->person->id, $animal->id], $statement);
         } else {
-            $statement = $this->db->prepare("UPDATE {$this->table} SET nom = ?, sexe = ?, sterilise = ?, puce = ? WHERE id = ?");
-            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->id], $statement);
+            $statement = $this->db->prepare("UPDATE {$this->table} SET nom = ?, sexe = ?, sterilise = ?, puce = ?, type = ? WHERE id = ?");
+            parent::store([$animal->nom, $animal->sexe, $animal->sterilise, $animal->puce, $animal->type, $animal->id], $statement);
         }
     }
 }

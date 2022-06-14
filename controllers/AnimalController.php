@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 class AnimalController extends Controller {
     public function index () {
         $animals = Animal::all();
@@ -33,7 +32,8 @@ class AnimalController extends Controller {
        $sexe = $data['sexe'] ? $data['sexe'] : false;
        $sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
        $puce = $data['puce'] ? $data['puce'] : false;
-       $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $animalPersonID);
+       $type = $data['type'] ? $data['type'] : false;
+       $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $type, $animalPersonID);
        $animal->save();
        return header('Location: index.php?ctlr=animals&action=index');
         }
@@ -59,6 +59,7 @@ class AnimalController extends Controller {
         $animal->sexe = $data['sexe'] ? $data['sexe'] : $animal->sexe;
         $animal->sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
         $animal->puce = $data['puce'] ? $data['puce'] : $animal->puce;
+        $animal->type = $data['type'] ? $data['type'] : $animal->type;
         $animal->save();
         return header('Location: index.php?ctlr=animals&action=index');
     }
