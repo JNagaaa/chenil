@@ -1,4 +1,5 @@
 <?php
+session_start();
 class AnimalController extends Controller {
     public function index () {
         $animals = Animal::all();
@@ -23,19 +24,27 @@ class AnimalController extends Controller {
             array_push($animalChips, $objectAnimalChip->puce);
         }
         if(in_array($data['puce'], $animalChips)){
-            $_POST['doublon'] = "doublon";
-            return header('Location: index.php?ctlr=animals&action=index');
+            $_SESSION['error']['doublon'] = "doublon";
+        }
+        if(empty($data['nom']) || preg_match('/^[0-9]*$/', $data['nom']) ){
+            $_SESSION['error']['name'] = "name";
+        }
+        if(empty($data['puce']) || !preg_match('/^[0-9]*$/', $data['puce'])){
+            $_SESSION['error']['chip'] = "chip";
+        }
+        if(isset($_SESSION['error'])){
+            return header('Location: index.php?ctlr=animals&action=create');
         }else{
-       $animalPersonToStore = Person::find($data['person_id']);
-       $animalPersonID = $animalPersonToStore->id;
-       $nom = $data['nom'] ? $data['nom'] : false;
-       $sexe = $data['sexe'] ? $data['sexe'] : false;
-       $sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
-       $puce = $data['puce'] ? $data['puce'] : false;
-       $type = $data['type'] ? $data['type'] : false;
-       $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $type, $animalPersonID);
-       $animal->save();
-       return header('Location: index.php?ctlr=animals&action=index');
+            $animalPersonToStore = Person::find($data['person_id']);
+            $animalPersonID = $animalPersonToStore->id;
+            $nom = $data['nom'] ? $data['nom'] : false;
+            $sexe = $data['sexe'] ? $data['sexe'] : false;
+            $sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
+            $puce = $data['puce'] ? $data['puce'] : false;
+            $type = $data['type'] ? $data['type'] : false;
+            $animal = new Animal(0, $nom, $sexe, $sterilise, $puce, $type, $animalPersonID);
+            $animal->save();
+            return header('Location: index.php?ctlr=animals&action=index');
         }
     }
     
@@ -46,11 +55,19 @@ class AnimalController extends Controller {
     }
     
     public function update($id, $data) {
+        if(empty($data['nom']) || preg_match('/^[0-9]*$/', $data['nom']) ){
+            $_SESSION['error']['name'] = "name";
+        }
+        if(empty($data['puce']) || !preg_match('/^[0-9]*$/', $data['puce'])){
+            $_SESSION['error']['chip'] = "chip";
+        }
+        if(isset($_SESSION['error'])){
+            return header('Location: index.php?ctlr=animals&action=index');
+        }
         $animal = Animal::find($id);
         if (!$animal) {
             return false;
         }
-        
         
         $animalPersonToUpdate = Person::find($data['person_id']);
         $animalPersonToUpdateID = $animalPersonToUpdate->id;

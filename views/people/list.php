@@ -10,9 +10,11 @@
         <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
         <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
    </ul>
-   <?php if(isset($_POST['doublon'])): ?><b><p style="color:red">Ce propriétaire est déjà enregistré</p></b>
-    <?php endif; unset($_POST['doublon']); ?>
-    <?php if (isset($people)): ?>
+   <?php
+    if(isset($_SESSION['error'])): ?>
+        <b><p style="color:red">Les informations que vous avez tenté de modifier ne sont pas valides</p></b>
+    <?php endif; ?>
+    <?php if (isset($people) && !empty($people)): ?>
         <ul>
             <?php foreach($people as $person): ?>
                 <li><a href="index.php?ctlr=people&action=show&id=<?= $person->id; ?>"><?= $person->prenom ?> <?= $person->nom; ?></a>
@@ -28,5 +30,6 @@
             <a href="index.php?ctlr=people&action=create">CREATE</a>
         </ul>
     <?php endif; ?>
+    <?php session_destroy(); ?>
 </body>
 </html>

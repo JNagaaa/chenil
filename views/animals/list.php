@@ -10,9 +10,9 @@
        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
    </ul>
-    <?php if(isset($_POST['doublon'])): ?><b><p style="color:red">Cet animal est déjà enregistré</p></b>
-    <?php endif; unset($_POST['doublon']); ?>
-    <?php if (isset($animals)): ?>
+   <?php var_dump($_SESSION); if(isset($_SESSION['error'])): ?><b><p style="color:red">Les informations que vous avez tenté de modifier ne sont pas valides (<?php if(isset($_SESSION['error']['name'])): ?>nom<?php endif; if(count($_SESSION['error']) == 2): ?>, <?php endif; if(isset($_SESSION['error']['chip'])): ?>puce<?php endif; ?>)</p></b><?php endif; ?>
+
+    <?php if (isset($animals) && !empty($animals)): ?>
         <ul>
             <?php foreach($animals as $animal): ?>
                 <li><a href="index.php?ctlr=animals&action=show&id=<?= $animal->id; ?>"><?= $animal->nom; ?></a>
@@ -28,5 +28,6 @@
             <a href="index.php?ctlr=animals&action=create">Ajouter</a>
         </ul>
     <?php endif; ?>
+    <?php var_dump($_POST); session_destroy(); ?>
 </body>
 </html>

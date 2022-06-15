@@ -11,10 +11,10 @@
    <input type="hidden" name="action" value="update">
    
    <label for="person-name">Nom du propriétaire: </label>
-   <input id="person-name" type="text" name="nom" value="<?= $person->nom; ?>">
+   <input id="person-name" type="text" name="nom" style="text-transform: capitalize;" value="<?= $person->nom; ?>">
    
    <label for="person-surname">Prénom du propriétaire: </label>
-   <input id="person-surname" type="text" name="prenom" value="<?= $person->prenom; ?>">
+   <input id="person-surname" type="text" name="prenom" style="text-transform: capitalize;" value="<?= $person->prenom; ?>">
 
    <label for="person-birth">Date de naissance: </label>
    <input id="person-birth" type="date" name="naissance" value="<?= $person->naissance; ?>">

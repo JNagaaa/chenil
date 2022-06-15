@@ -23,10 +23,8 @@ interface SpeakBehaviorInterface {
 
 class Meow implements SpeakBehaviorInterface {
     public function speak () {
-        if(true){
         echo "Pour s'exprimer, le chat miaule. ";
         }
-    }
 }
 
 class Bark implements SpeakBehaviorInterface  {

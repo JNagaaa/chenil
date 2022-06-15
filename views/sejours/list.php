@@ -10,7 +10,7 @@
         <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
         <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
    </ul>
-    <?php if (isset($sejours)): ?>
+    <?php if (isset($sejours) && !empty($sejours)): ?>
         <ul>
             <?php foreach($sejours as $sejour): ?>
                 <li><a href="index.php?ctlr=sejours&action=show&id=<?= $sejour->id; ?>"><?= $sejour->date; ?></a>
@@ -22,8 +22,8 @@
                     </form>
                 </li>
             <?php endforeach; ?>
-            <a href="index.php?ctlr=sejours&action=create">CREATE</a>
         </ul>
     <?php endif; ?>
+    <a href="index.php?ctlr=sejours&action=create">CREATE</a>
 </body>
 </html>
