@@ -7,8 +7,11 @@
     <script src="scripts/script.js"></script>
 </head>
 <body>
-    <a href="http://chenil/index.php?ctlr=animals&action=index">Retour à la liste des animaux</a>
-    <h2><?= $animal->nom; ?></h2>
+<ul>
+    <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+    <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+    <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+</ul>    <h2><?= $animal->nom; ?></h2>
     <p>Sexe: <?= $animal->sexe ?></p>
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>

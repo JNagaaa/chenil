@@ -63,7 +63,6 @@ class PersonController extends Controller {
         }
         if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
             return header('Location: index.php?ctlr=people&action=create');
-            var_dump($_SESSION);
         }else{ 
             $person = new Person(0, $data["nom"], $data["prenom"], $data["naissance"], $data["mail"], $data["telephone"]);
             $person->save();   
