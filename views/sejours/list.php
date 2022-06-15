@@ -22,12 +22,6 @@
                 <?php //if(in_array($sejour->date, $allSejoursDates)):  ?>
                 <?php foreach($allSejours as $oneSejour): ?>
                 <li><a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= $oneSejour->date; ?></a>
-                    <form action="index.php" method="POST">
-                        <input type="hidden" name="ctlr" value="sejours">
-                        <input type="hidden" name="action" value="destroy">
-                        <input type="hidden" name="id" value="<?= $sejour->id; ?>">
-                        <input type="submit" value="SUPPR">
-                    </form>
                 </li>
             <?php endforeach; ?>
         </ul>

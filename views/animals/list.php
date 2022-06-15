@@ -25,8 +25,8 @@
                     </form>
                 </li>
             <?php endforeach; ?>
-            <a href="index.php?ctlr=animals&action=create">Ajouter</a>
         </ul>
+        <a href="index.php?ctlr=animals&action=create">Ajouter</a>
     <?php endif; ?>
     <?php var_dump($_POST); session_destroy(); ?>
 </body>

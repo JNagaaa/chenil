@@ -16,7 +16,7 @@
         <label for="animal-gender">Sexe de l'animal: </label>
         <select id="animal-gender" type="text" name="sexe" value="">
         <option value="Mâle">Mâle</option>
-        <option value="Femee">Femelle</option>
+        <option value="Femelle">Femelle</option>
         </select>
         <br>
         <label for="animal-steri">Stérilisé: </label>
