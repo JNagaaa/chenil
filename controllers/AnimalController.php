@@ -63,22 +63,23 @@ class AnimalController extends Controller {
         }
         if(isset($_SESSION['error'])){
             return header('Location: index.php?ctlr=animals&action=index');
+        }else{
+            $animal = Animal::find($id);
+            if (!$animal) {
+                return false;
+            }
+            
+            $animalPersonToUpdate = Person::find($data['person_id']);
+            $animalPersonToUpdateID = $animalPersonToUpdate->id;
+            $animal->person = $animalPersonToUpdateID;
+            $animal->nom = $data['nom'] ? $data['nom'] : $animal->nom;
+            $animal->sexe = $data['sexe'] ? $data['sexe'] : $animal->sexe;
+            $animal->sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
+            $animal->puce = $data['puce'] ? $data['puce'] : $animal->puce;
+            $animal->type = $data['type'] ? $data['type'] : $animal->type;
+            $animal->save();
+            return header('Location: index.php?ctlr=animals&action=index');
         }
-        $animal = Animal::find($id);
-        if (!$animal) {
-            return false;
-        }
-        
-        $animalPersonToUpdate = Person::find($data['person_id']);
-        $animalPersonToUpdateID = $animalPersonToUpdate->id;
-        $animal->person = $animalPersonToUpdateID;
-        $animal->nom = $data['nom'] ? $data['nom'] : $animal->nom;
-        $animal->sexe = $data['sexe'] ? $data['sexe'] : $animal->sexe;
-        $animal->sterilise = isset($data['sterilise']) ? $data['sterilise'] : 0;
-        $animal->puce = $data['puce'] ? $data['puce'] : $animal->puce;
-        $animal->type = $data['type'] ? $data['type'] : $animal->type;
-        $animal->save();
-        return header('Location: index.php?ctlr=animals&action=index');
     }
     
     public function destroy ($id) {

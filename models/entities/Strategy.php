@@ -17,6 +17,8 @@ class Bird extends Animal {
     }
 }
 
+
+
 interface SpeakBehaviorInterface {
     public function speak();
 }

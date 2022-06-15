@@ -24,27 +24,11 @@ class Sejour extends Entity {
     public function __get ($prop) {
         if (property_exists($this, $prop)) {
             if ($prop == "animals") {
-                return $this->animals();
+                return Animal::where('person_id', $this->id);
             }else if ($prop == 'animal') {
-                return $this->animal();
+                return Animal::find($this->animal);
             }
             return $this->$prop;
         }
-    }
-
-    protected function animal () {
-        if($this->animal instanceof Animal) {
-            return $this->animal;
-        }
-        $this->animal = Animal::find($this->animal);
-        return $this->animal;
-    }
-    
-    protected function animals () {
-        if ($this->animals) {
-            return $this->animals;
-        }
-        $this->animals = Animal::where('id', $this->id);
-        return $this->animals;
     }
 }

@@ -13,6 +13,17 @@
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
     <p>Type de l'animal: <?= $animal->type ?></p>
+    <h4>Séjours de <?= $animal->nom ?>: </h4>
+    <?php if($animal->sejours) : ?>
+    <?php foreach($animal->sejours as $otherSejour): ?>
+               <li><a href="index.php?ctlr=sejours&action=show&id=<?= $otherSejour->id; ?>"><?= $otherSejour->date; ?></a></li>
+               <?php //endif; ?>
+               <?php endforeach; ?>
+            <?php else: ?>
+                <?php echo "Test"; ?>
+                <?php endif; ?>
+
+    <br>
     <?php
     include('../models/entities/Strategy.php');
     if($animal->type == "Chat"){

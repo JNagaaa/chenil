@@ -27,8 +27,8 @@
                     </form>
                 </li>
             <?php endforeach; ?>
-            <a href="index.php?ctlr=people&action=create">CREATE</a>
         </ul>
+        <a href="index.php?ctlr=people&action=create">CREATE</a>
     <?php endif; ?>
     <?php session_destroy(); ?>
 </body>

@@ -9,6 +9,7 @@ class SejourController extends Controller {
     
     public function show ($id) {
         $sejour = Sejour::find($id);
+        $listAnimals = Sejour::where('date', $sejour->date);
         include('../views/sejours/one.php');
     }
     
@@ -18,12 +19,12 @@ class SejourController extends Controller {
     }
     
     public function store ($data) {
-       $animal = $data['animal_id'] ? Animal::find($data['animal_id']) : false;
-       $date = $data['date'] ? $data['date'] : false;
-    
-       $sejour = new Sejour(0, $date, $animal);
-       $sejour->save();
-       return $this->index();
+        $sejourAnimalToStore = Animal::find($data['animal_id']);
+        $sejourAnimalToStoreID = $sejourAnimalToStore->id;
+        $date = $data['date'] ? $data['date'] : false;
+        $sejour = new Sejour(0, $date, $sejourAnimalToStoreID);
+        $sejour->save();
+        return $this->index();
     }
     
     public function destroy ($id) {
@@ -32,6 +33,6 @@ class SejourController extends Controller {
             return false;
         }
         $sejour->delete();
-        return $this->index();
+        return header('Location: index.php?ctlr=sejours&action=index');
     }
 }
