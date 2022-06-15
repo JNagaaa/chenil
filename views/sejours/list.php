@@ -13,15 +13,22 @@
    <?php
    $allSejours = [];
    $allSejoursDates = [];
+
+   $allSejoursDatesForNumber = [];
+    $allSejoursForNumber = Sejour::all();
+    foreach($allSejoursForNumber as $sejourForNumber){
+        array_push($allSejoursDatesForNumber, $sejourForNumber->date);
+    }
+    $nbSejoursByDate = array_count_values($allSejoursDatesForNumber);
    ?>
 
     <?php if (isset($sejours) && !empty($sejours)): ?>
         <ul>
             <?php foreach($sejours as $sejour): ?>
                 <?php if(!in_array($sejour->date, $allSejoursDates, true)): array_push($allSejoursDates, $sejour->date); array_push($allSejours, $sejour); endif; endforeach; ?>
-                <?php //if(in_array($sejour->date, $allSejoursDates)):  ?>
                 <?php foreach($allSejours as $oneSejour): ?>
-                <li><a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= $oneSejour->date; ?></a>
+                <li>
+                    <p><a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= $oneSejour->date; ?></a> (<?= $nbSejoursByDate[$oneSejour->date]; ?>/10 places occupées)</p>
                 </li>
             <?php endforeach; ?>
         </ul>

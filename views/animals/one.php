@@ -20,7 +20,6 @@
     <?php if($animal->sejours) : ?>
     <?php foreach($animal->sejours as $otherSejour): ?>
                <li><a href="index.php?ctlr=sejours&action=show&id=<?= $otherSejour->id; ?>"><?= $otherSejour->date; ?></a></li>
-               <?php //endif; ?>
                <?php endforeach; ?>
             <?php else: ?>
                 <p>Aucun séjour de prévu pour <?= $animal->nom; ?>. <a href="index.php?ctlr=sejours&action=create">En créer un</a>
