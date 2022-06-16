@@ -21,4 +21,6 @@ interface DAOInterface {
     
     /*Supprime une entité*/
     public function destroy($obj);
+
+    //public function dubbleWhere($attr,$value,$attr2,$value2);
 }

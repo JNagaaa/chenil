@@ -17,12 +17,14 @@
 
    $allSejoursDatesForNumber = [];
     $allSejoursForNumber = Sejour::all();
-    foreach($allSejoursForNumber as $sejourForNumber){
-        array_push($allSejoursDatesForNumber, $sejourForNumber->date);
+    if(isset($allSejoursDatesForNumber) && !empty($allSejoursForNumber)){
+        foreach($allSejoursForNumber as $sejourForNumber){
+            array_push($allSejoursDatesForNumber, $sejourForNumber->date);
+        }
+        $nbSejoursByDate = array_count_values($allSejoursDatesForNumber);
     }
-    $nbSejoursByDate = array_count_values($allSejoursDatesForNumber);
    ?>
-
+    <h3>Séjours planifiés:</h3>
     <?php if (isset($sejours) && !empty($sejours)): ?>
         <ul>
             <?php foreach($sejours as $sejour): ?>
@@ -33,7 +35,9 @@
                 </li>
             <?php endforeach; ?>
         </ul>
+    <?php else : ?>
+        <p>Aucun séjour n'a encore été planifié</p>
     <?php endif; ?>
-    <a href="index.php?ctlr=sejours&action=create">CREATE</a>
+    <button><a href="index.php?ctlr=sejours&action=create">Planifier un séjour</a></button>
 </body>
 </html>

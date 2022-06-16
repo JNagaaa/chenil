@@ -18,6 +18,19 @@
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
     <p>Type de l'animal: <?= $animal->type ?></p>
+    <form action="index.php" method="GET">
+        <input type="hidden" name="ctlr" value="animals">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="id" value="<?= $animal->id; ?>">
+        <input type="submit" value="Modifier">
+    </form>        
+    
+    <form action="index.php" method="POST">
+        <input type="hidden" name="ctlr" value="animals">
+        <input type="hidden" name="action" value="destroy">
+        <input type="hidden" name="id" value="<?= $animal->id; ?>">
+        <input type="submit" value="Supprimer">
+    </form>
     <h3>Séjours planifiés: </h3>
     <?php if($animal->sejours) : ?>
     <?php foreach($animal->sejours as $otherSejour): ?>

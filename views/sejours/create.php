@@ -19,6 +19,7 @@
         <input id="sejour-date" type="date" name="date" value="">
         <?php if(isset($_SESSION['error']['date'])) : ?><b><p style="color:red">Veuillez saisir une date valide</p></b><?php endif; ?>
         <?php if(isset($_SESSION['error']['number'])) : ?><b><p style="color:red">Le chenil est déjà complet pour cette date</p></b><?php endif; ?>
+        <?php if(isset($_SESSION['error']['doublon'])) : ?><b><p style="color:red">Animal déjà enregistré à cette date</p></b><?php endif; ?>
 
         <br>
         <label for="sejour-animal">Animal concerné: </label>
@@ -27,7 +28,8 @@
                 <option value="<?= $animal->id ?>"><?= $animal->nom; ?></option>
             <?php endforeach; ?>       
         </select>
-        <input type="submit">
+        <br>
+        <input type="submit" value="Créer le séjour">
     </form>
 </body>
 </html>

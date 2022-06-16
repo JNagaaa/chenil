@@ -21,4 +21,7 @@ interface EntityInterface {
     
     /*Doit permettre de retourner la première entité de ce type ou $attr = $value*/
     public static function first($attr, $value);
+
+   // public static function dubbleWhere($attr,$value,$attr2,$value2);
+
 }

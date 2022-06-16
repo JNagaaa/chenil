@@ -24,8 +24,20 @@
         <?php endforeach; ?>
         <?php endif; ?>
     </ul>
-    <a href="index.php?ctlr=people&action=edit&id=<?= $person->id; ?>">Modifier ce propriétaire</a>
-
+    <form action="index.php" method="GET">
+        <input type="hidden" name="ctlr" value="people">
+        <input type="hidden" name="action" value="edit">
+        <input type="hidden" name="id" value="<?= $person->id; ?>">
+        <input type="submit" value="Modifier">
+    </form>        
+    
+    <form action="index.php" method="POST">
+        <input type="hidden" name="ctlr" value="people">
+        <input type="hidden" name="action" value="destroy">
+        <input type="hidden" name="id" value="<?= $person->id; ?>">
+        <input type="submit" value="Supprimer">
+    </form>
 </body>
 </html>
+<?php var_dump($_SESSION); ?>
   

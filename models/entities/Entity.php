@@ -42,7 +42,12 @@ abstract class Entity implements EntityInterface {
     public static function where ($attr, $value) {
         return (new static::$dao_name())->where($attr, $value);
     }
-    
+    /*
+    public static function dubbleWhere($attr,$value,$attr2,$value2){
+        return (new static::$dao_name())->where($attr,$value,$attr2,$value2);
+    }
+    */
+
     public static function first ($attr, $value) {
         return (new static::$dao_name())->first($attr, $value);
     }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 class PersonController extends Controller {
-    
+
     public function index () {
         $people = Person::all();
         include('../views/people/list.php');
@@ -102,10 +102,10 @@ class PersonController extends Controller {
         if(!preg_match("#^[a-zA-Z'àâäéèêëîïôöûüÀÄÂÉÈÊÎÏÔÖÛÜoeæ-]+$#", $data['prenom'])){
             $_SESSION['error']['lastname'] = "lastname";
         }
-        if (!str_contains($data['mail'], "@") || (strlen($data['mail'] > 10)) || !str_contains($data['mail'], ".")) {
+        if (!preg_match("/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/", $data['mail']) || (strlen($data['mail'] > 10))) {
             $_SESSION['error']['mailerror'] = "mail";
         }
-        if($birthDate >= $todayDate || empty($birthDate)){
+        if($birthDate >= $todayDate || !pregmatch("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date']) || empty($birthDate)){
             $_SESSION['error']['date'] = "date";
         }
         if(substr($convertedPhone, 0, 2) != "47" || strlen($convertedPhone) != 9 || empty($data['telephone'])){

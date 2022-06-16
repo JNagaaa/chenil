@@ -45,7 +45,8 @@
                 <option value="<?= $person->id ?>"><?= $person->prenom ?> <?= $person->nom; ?></option>
             <?php endforeach; ?>       
         </select>
-        <input type="submit">
+        <br>
+        <input type="submit" value="Enregistrer l'animal">
     </form>
 </body>
 </html>

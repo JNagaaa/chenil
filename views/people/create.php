@@ -35,7 +35,8 @@
     <label for="person-phone">Numéro de téléphone belge: </label>
     <input type="number" id="person-phone" name="telephone" value="">
     <?php if(isset($_SESSION['error']['phone'])): ?><b><p style="color:red">Veuillez saisir un numéro de téléphone (belge) valide</p></b><?php endif; ?>
-    <input type="submit" value="Envoyer">
+    <br>
+    <input type="submit" value="Enregistrer">
   </form>
 </body>
 </html>
