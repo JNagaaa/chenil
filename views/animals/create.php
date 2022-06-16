@@ -5,6 +5,12 @@
     <title>Ajout animal</title>
 </head>
 <body>
+    <ul>
+        <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+    </ul>
     <form action="index.php" method="post">
         <input type="hidden" name="ctlr" value="animals">
         <input type="hidden" name="action" value="store">
@@ -15,8 +21,8 @@
         <br>
         <label for="animal-gender">Sexe de l'animal: </label>
         <select id="animal-gender" type="text" name="sexe" value="">
-        <option value="Mâle">Mâle</option>
-        <option value="Femelle">Femelle</option>
+            <option value="Mâle">Mâle</option>
+            <option value="Femelle">Femelle</option>
         </select>
         <br>
         <label for="animal-steri">Stérilisé: </label>
@@ -28,9 +34,9 @@
         <br>
         <label for="animal-type">Type de l'animal: </label>
         <select id="animal-type" type="text" name="type" value="">
-        <option value="Chat">Chat</option>
-        <option value="Chien">Chien</option>
-        <option value="Oiseau">Oiseau</option>
+            <option value="Chat">Chat</option>
+            <option value="Chien">Chien</option>
+            <option value="Oiseau">Oiseau</option>
         </select>
         <br>
         <label for="animal-proprio">Propriétaire de l'animal</label>

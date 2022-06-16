@@ -7,11 +7,13 @@
     <script src="scripts/script.js"></script>
 </head>
 <body>
-<ul>
-    <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
-    <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
-    <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
-</ul>    <h2><?= $animal->nom; ?></h2>
+    <ul>
+        <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+    </ul>
+    <h2><?= $animal->nom; ?></h2>
     <p>Sexe: <?= $animal->sexe ?></p>
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
@@ -22,7 +24,7 @@
                <li><a href="index.php?ctlr=sejours&action=show&id=<?= $otherSejour->id; ?>"><?= $otherSejour->date; ?></a></li>
                <?php endforeach; ?>
             <?php else: ?>
-                <p>Aucun séjour de prévu pour <?= $animal->nom; ?>. <a href="index.php?ctlr=sejours&action=create">En créer un</a>
+                <p>Aucun séjour de prévu pour <?= $animal->nom; ?>. <a href="index.php?ctlr=sejours&action=create">En planifier un</a>
                 <?php endif; ?>
 
     <br>

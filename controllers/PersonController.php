@@ -1,6 +1,7 @@
 <?php
 session_start();
 class PersonController extends Controller {
+    
     public function index () {
         $people = Person::all();
         include('../views/people/list.php');

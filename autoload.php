@@ -8,6 +8,6 @@ spl_autoload_register ( function ($class) {
     } else if (strpos ( $class, "Router") !== false) {
         require_once("Router.php");
     } else {
-			require_once("models/entities/{$class}.php");
-		}
+		require_once("models/entities/{$class}.php");
+	}
 });

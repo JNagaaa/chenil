@@ -5,11 +5,12 @@
     <title>Propriétaires</title>
 </head>
 <body>
-   <ul>
+    <ul>
         <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
         <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
         <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
-   </ul>
+        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+    </ul>
    <?php
     if(isset($_SESSION['error'])): ?>
         <b><p style="color:red">Les informations que vous avez tenté de modifier ne sont pas valides</p></b>

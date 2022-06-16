@@ -5,11 +5,13 @@
     <title><?= $person->prenom; ?> <?= $person->nom; ?></title>
 </head>
 <body>
-<ul>
-    <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
-    <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
-    <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
-</ul>    <h2><?= $person->prenom; ?> <?= $person->nom ?></h2>
+    <ul>
+        <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+    </ul>
+<h2><?= $person->prenom; ?> <?= $person->nom ?></h2>
 <p>Date de naissance: <?= str_replace('-', '/', date('d-m-Y', strtotime($person->naissance))) ?></p>
 <p>Adresse mail: <?= $person->mail ?></p>
 <p>Numéro de téléphone: 0<?= substr($person->telephone, 0, 3) . "/" . substr($person->telephone,3, 2) . "." . substr($person->telephone,5,2) . "." . substr($person->telephone,7); ?></p>

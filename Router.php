@@ -33,7 +33,8 @@ class Router {
             'index' => 'HomeController',
             'animals' => 'AnimalController',
             'people' => 'PersonController',
-            'sejours' => 'SejourController'
+            'sejours' => 'SejourController',
+            'board' => 'BoardController'
         ];
         
         $this->request = array();

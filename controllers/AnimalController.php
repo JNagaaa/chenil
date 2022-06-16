@@ -1,6 +1,7 @@
 <?php
 session_start();
 class AnimalController extends Controller {
+    
     public function index () {
         $animals = Animal::all();
         include('../views/animals/list.php');
