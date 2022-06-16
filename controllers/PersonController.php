@@ -53,7 +53,7 @@ class PersonController extends Controller {
         if(!preg_match("#^[a-zA-Z'àâäéèêëîïôöûüÀÄÂÉÈÊÎÏÔÖÛÜoeæ-]+$#", $data['prenom'])){
             $_SESSION['error']['lastname'] = "lastname";
         }
-        if (!str_contains($data['mail'], "@") || (strlen($data['mail'] > 10)) || !str_contains($data['mail'], ".")) {
+        if  (strlen($data['mail'] > 10) || !preg_match("/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/", $data['date'])) {
             $_SESSION['error']['mailerror'] = "mail";
         }
         if($birthDate >= $todayDate || empty($birthDate)){
