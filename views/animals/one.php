@@ -26,6 +26,7 @@
     <p>Sexe: <?= $animal->sexe ?></p>
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
+    <p>Date de naissance: <?= $animal->naissance ?></p>
     <p>Type de l'animal: <?= $animal->type ?></p>
     <div id=updateDelete>
     <form action="index.php" method="GET">
@@ -74,6 +75,8 @@
             <?php foreach($animal->person->animals as $other_animal): ?>
             <?php if ($other_animal->nom !== $animal->nom): ?>
                 <li><a href="index.php?ctlr=animals&action=show&id=<?= $other_animal->id; ?>"><?= $other_animal->nom ?></a></li>
+            <?php else: ?>
+                <p>Pas d'autre animal</p>
             <?php endif; ?>
             <?php endforeach; ?>
         </div>

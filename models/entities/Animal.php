@@ -10,17 +10,19 @@ class Animal extends Entity {
     protected $sexe;
     protected $sterilise;
     protected $puce;
+    protected $naissance;
     protected $type;
     protected $person;
     protected $sejours;
     protected static $dao_name = "AnimalDAO";
     
-    public function __construct ($id, $nom, $sexe, $sterilise, $puce, $type, $person, $sejours = false) {
+    public function __construct ($id, $nom, $sexe, $sterilise, $puce, $naissance, $type, $person, $sejours = false) {
         $this->id = $id;
         $this->nom = $nom;
         $this->sexe = $sexe;
         $this->sterilise = $sterilise;
         $this->puce = $puce;
+        $this->naissance = $naissance;
         $this->type = $type;
         $this->person = $person;
         $this->sejours = $sejours;

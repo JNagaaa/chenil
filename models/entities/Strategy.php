@@ -1,19 +1,19 @@
 <?php
 class Cat extends Animal {
     public function __construct() {
-        parent::strategy(new Meow(), new CatSize(), new CatLocation(), false, false, false, false);
+        parent::strategy(new Meow(), new CatSize(), new CatLocation(), false, false, false, false, false);
     }
 }
 
 class Dog extends Animal {
     public function __construct() {
-        parent::strategy(new Bark(), new DogSize(), new DogLocation(), false, false, false, false);
+        parent::strategy(new Bark(), new DogSize(), new DogLocation(), false, false, false, false, false);
     }
 }
 
 class Bird extends Animal {
     public function __construct() {
-        parent::strategy(new Twitter(), new BirdSize(), new BirdLocation(), false, false, false, false);
+        parent::strategy(new Twitter(), new BirdSize(), new BirdLocation(), false, false, false, false, false);
     }
 }
 

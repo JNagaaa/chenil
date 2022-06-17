@@ -105,7 +105,7 @@ class PersonController extends Controller {
         if (!preg_match("/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/", $data['mail']) || (strlen($data['mail'] > 10))) {
             $_SESSION['error']['mailerror'] = "mail";
         }
-        if($birthDate >= $todayDate || !pregmatch("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date']) || empty($birthDate)){
+        if($birthDate >= $todayDate || empty($birthDate) || !preg_match('/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/', $data['date']) == false){
             $_SESSION['error']['date'] = "date";
         }
         if(substr($convertedPhone, 0, 2) != "47" || strlen($convertedPhone) != 9 || empty($data['telephone'])){

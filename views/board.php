@@ -1,3 +1,9 @@
+<?php
+$animals = Animal::all();
+$sejours = Sejour::all();
+$people = Person::all();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +13,12 @@
     <link rel="stylesheet" href="css/chenil.css">
     <title>Tableau de bord</title>
 </head>
-<body>
-    <main role="main">
-        <header>
+<header>
             <h1 class="header">L'Escale Canine</h1>
         </header>
+<body>
+    <main role="main">
+        
 
         <nav>
         <ul class="nav">
@@ -25,11 +32,6 @@
         <h2 id="title">Tableau de bord</h2>
         <div class="board">
         <article>
-            <?php
-            $animals = Animal::all();
-            $sejours = Sejour::all();
-            $people = Person::all();
-            ?>
             <?php if(isset($animals) && !empty($animals)): ?>
                     <?php $nbAnimals = count($animals); ?>
                     <h3>Nous comptons pas moins de <?= $nbAnimals ?> animaux dans notre chenil:</h3>
@@ -74,6 +76,14 @@
         </div>
         <?php if(isset($sejours) && !empty($sejours)) : ?>
             <?php
+            $allSejoursDatesForNumber = [];
+            $allSejoursForNumber = Sejour::all();
+            if(isset($allSejoursDatesForNumber) && !empty($allSejoursForNumber)){
+                foreach($allSejoursForNumber as $sejourForNumber){
+                    array_push($allSejoursDatesForNumber, $sejourForNumber->date);
+                }
+                $nbSejoursByDate = array_count_values($allSejoursDatesForNumber);
+            }
             $nbSejours = count($sejours);
             $allSejours = [];
             $allSejoursDates = [];
@@ -88,7 +98,7 @@
             <ul>
                 <?php foreach($allSejours as $oneSejour): ?>
                     <li>
-                        <a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= $oneSejour->date; ?></a>
+                        <p><a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= $oneSejour->date; ?></a> (<?= $nbSejoursByDate[$oneSejour->date]; ?>/10 places occupées)</p>
                     </li>
                 <?php endforeach; ?>
             </ul>

@@ -42,6 +42,9 @@
         <label for="animal-chip">N° de puce: </label>
         <input id="animal-chip" type="text" name="puce" value="<?= $animal->puce; ?>">
         <br>
+        <label for="animal-birth">Date de naissance: </label>
+        <input type="date" id="animal-birth" name="naissance" value="<?= $animal->naissance ?>">
+        <br>
         <label for="animal-type">Type de l'animal: </label>
         <select id="animal-type" type="text" name="type" value="<?= $animal->type ?>">
             <option value="Chat">Chat</option>

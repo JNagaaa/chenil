@@ -22,12 +22,15 @@
             <div id="form">
                 <h2 id="title">Enregistrement d'un nouvel animal</h2>
                 <form action="index.php" method="post">
+                    <fieldset>
+                        <legend>Veuillez rentrer les informations</legend>
                     <input type="hidden" name="ctlr" value="animals">
                     <input type="hidden" name="action" value="store">
-
+                    <fieldset>
                     <label for="animal-name">Nom de l'animal: </label>
                     <input id="animal-name" type="text" name="nom" style="text-transform: capitalize;" value="">
                     <?php if(isset($_SESSION['error']['name'])): ?><b><?php echo $_SESSION['error']['name'] ?></b><?php endif; ?>
+                    </fieldset>
                     <br>
                     <label for="animal-gender">Sexe de l'animal: </label>
                     <select id="animal-gender" type="text" name="sexe" value="">
@@ -43,6 +46,10 @@
                     <label for="animal-chip">N° de puce: </label>
                     <input id="animal-chip" type="text" name="puce" value="">
                     <?php if(isset($_SESSION['error']['chip'])): ?><b><?php echo $_SESSION['error']['chip'] ?></b><?php endif; ?>
+                    <br>
+                    <label for="animal-birth">Date de naissance: </label>
+                    <input type="date" id="animal-birth" name="naissance" value="">
+                    <?php if(isset($_SESSION['error']['date'])): ?><b><?php echo $_SESSION['error']['date'] ?></b><?php endif; ?>
                     <br>
                     <label for="animal-type">Type de l'animal: </label>
                     <select id="animal-type" type="text" name="type" value="">
@@ -61,6 +68,7 @@
                     <?php if(isset($_SESSION['error']['person'])): ?><b><?php echo $_SESSION['error']['person'] ?></b><?php endif; ?>
                     <br>
                     <br>
+                    </fieldset>
                     <input type="submit" value="Enregistrer l'animal">
                 </form>
             </div>
