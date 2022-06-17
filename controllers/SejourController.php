@@ -19,8 +19,15 @@ class SejourController extends Controller {
     }
     
     public function store ($data) {
-        $sejoursOnThisDateObject = Sejour::where('date', $data['date']);
+
+        $allAnimalsId = [] ;
+        $allAnimalsObject = Animal::all();
+        foreach($allAnimalsObject as $animalObject){
+            array_push($allAnimalsId, $animalObject->id);
+        }
+
         $sejoursOnThisDate = [];
+        $sejoursOnThisDateObject = Sejour::where('date', $data['date']);
        
         if(isset($sejoursOnThisDateObject)){
             foreach($sejoursOnThisDateObject as $sejourOnThisDateObject){
@@ -41,10 +48,12 @@ class SejourController extends Controller {
         }
         if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date']) || empty($data['date'])){
             $_SESSION['error']['date'] = "error";
-            
         }
         if(in_array($data['animal_id'], $sejoursOnThisDate)){
             $_SESSION['error']['doublon'] = "error";
+        }
+        if(!in_array($data['animal_id'], $allAnimalsId)){
+            $_SESSION['error']['animal'] = "Bien essayé, mais range cette console!";
         }
         if(isset($_SESSION['error'])){
             return header('Location: index.php?ctlr=sejours&action=create');

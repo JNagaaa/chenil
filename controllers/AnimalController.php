@@ -74,6 +74,12 @@ class AnimalController extends Controller {
     }
     
     public function update($id, $data) {
+        $allPeopleId = [] ;
+        $allPeopleObject = Person::all();
+        foreach($allPeopleObject as $personObject){
+            array_push($allPeopleId, $personObject->id);
+        }
+
         if(empty($data['nom']) || preg_match('/^[0-9]*$/', $data['nom']) ){
             $_SESSION['error']['name'] = "Nom invalide";
         }
@@ -85,6 +91,12 @@ class AnimalController extends Controller {
         }
         if($data['type'] != "Chat" && $data['type'] != "Chien" && $data['type'] != "Oiseau"){
             $_SESSION['error']['type'] = "Bien essayé, mais range cette console!";
+        }
+        if(!in_array($data['person_id'], $allPeopleId)){
+            $_SESSION['error']['person'] = "Bien essayé, mais range cette console!";
+        }
+        if($data['sterilise'] != "1" && $data['sterilise'] != null && $data['sterilise'] != false && $data['sterilise'] != "0" ){
+            $_SESSION['error']['steri'] = "Bien essayé, mais range cette console!";
         }
         if(isset($_SESSION['error'])){
             return header('Location: index.php?ctlr=animals&action=index');

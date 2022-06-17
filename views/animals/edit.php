@@ -49,7 +49,8 @@
                 <?php endif; ?>
             <?php endforeach; ?>       
         </select>
-        <input type="submit">
+        <br>
+        <input type="submit" value="Modifier">
     </form>
 </body>
 </html>

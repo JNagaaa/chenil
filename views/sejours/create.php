@@ -29,6 +29,7 @@
                 <option value="<?= $animal->id ?>"><?= $animal->nom; ?></option>
             <?php endforeach; ?>       
         </select>
+        <?php if(isset($_SESSION['error']['animal'])): ?><b><?php echo $_SESSION['error']['animal'] ?></b><?php endif; ?>
         <br>
         <input type="submit" value="Créer le séjour">
     </form>
