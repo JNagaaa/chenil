@@ -49,7 +49,6 @@
           <br>
           <br>
           <input type="submit" value="Enregistrer">
-          <?php var_dump($_SESSION); ?>
         </form>
       </div>
     </main>

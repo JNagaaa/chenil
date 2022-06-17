@@ -113,8 +113,8 @@ class PersonController extends Controller {
         }
         if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
             return header('Location: index.php?ctlr=people&action=index');
-            var_dump($_SESSION);
-        }else{
+        }
+        else{
             $person = Person::find($id);
             if (!$person) {
                 return false;

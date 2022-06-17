@@ -43,23 +43,23 @@ class Twitter implements SpeakBehaviorInterface {
 
 
 
-interface Size {
+interface SizeInterface {
     public function size();
 }
 
-class CatSize implements Size {
+class CatSize implements SizeInterface {
     public function size(){
     echo "Un chat mesure en moyenne entre 23 et 25 cm. ";
     }
 }
 
-class DogSize implements Size {
+class DogSize implements SizeInterface {
     public function size(){
     echo "Un chien mesure en moyenne entre 15cm et 1,10m (tu parles d'une moyenne...). ";
     }
 }
 
-class BirdSize implements Size {
+class BirdSize implements SizeInterface {
     public function size(){ 
     echo "Un oiseau peut mesurer de 5cm (colibri d'Elena) à 2,75m (autruche d'Afrique)! ";
     }
@@ -67,23 +67,23 @@ class BirdSize implements Size {
 
 
 
-interface Location {
+interface LocationInterface {
     public function location();
 }
 
-class CatLocation implements Location {
+class CatLocation implements LocationInterface {
     public function location() {
     echo "Nous gardons les chats dans la zone A du bâtiment.";
     }
 }
 
-class DogLocation implements Location {
+class DogLocation implements LocationInterface {
     public function location() {
     echo "Nous gardons les chiens dans la zone B du bâtiment.";
     }
 } 
 
-class BirdLocation implements Location {
+class BirdLocation implements LocationInterface {
     public function location() {
     echo "Nous gardons les oiseaux dans la zone A du bâtiment, pour nourrir les chats. D'une pierre deux coups!";
     }
