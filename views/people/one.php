@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><?= $person->prenom; ?> <?= $person->nom; ?></title>
-</head>
+    <link rel="stylesheet" href="css/chenil.css"></head>
 <body>
     <ul>
         <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>

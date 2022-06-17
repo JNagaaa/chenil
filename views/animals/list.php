@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/chenil.css">
     <title>Animaux</title>
 </head>
 <body>
@@ -27,7 +28,11 @@
     <?php if(isset($_SESSION['key'])): ?>
         <b><p style="color:red">Supprimez d'abord les séjours affiliés à l'animal</p></b>
     <?php endif; ?>
-    <button><a href="index.php?ctlr=animals&action=create">Ajouter</a></button>
+    <form action="index.php" method="GET">
+        <input type="hidden" name="ctlr" value="animals">
+        <input type="hidden" name="action" value="create">
+        <input id="submit" type="submit" value="Ajouter un nouvel animal">
+    </form>  
     <?php session_destroy(); ?>
 </body>
 </html>

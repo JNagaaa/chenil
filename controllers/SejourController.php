@@ -28,8 +28,6 @@ class SejourController extends Controller {
             }
         }
 
-        
-
         $allSejoursDates = [];
         $allSejours = Sejour::all();
         foreach($allSejours as $sejourObject){
@@ -41,7 +39,7 @@ class SejourController extends Controller {
         if($nbSejoursByDate[$data['date']] == 10){
             $_SESSION['error']['number'] = "error";
         }
-        if( !preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date'])){
+        if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date']) || empty($data['date'])){
             $_SESSION['error']['date'] = "error";
             
         }

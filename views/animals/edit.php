@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/chenil.css">
     <title><?= $animal->nom; ?></title>
 </head>
 <body>
@@ -20,13 +21,13 @@
         <input id="animal-name" type="text" name="nom" value="<?= $animal->nom; ?>">
         <br>
         <label for="animal-gender">Sexe de l'animal: </label>
-        <select id="animal-gender" type="text" name="sexe" value="<?= $animal->type ?>">
+        <select id="animal-gender" type="text" name="sexe" value="<?= $animal->sexe ?>">
             <option value="Mâle">Mâle</option>
             <option value="Femelle">Femelle</option>
         </select>
         <br>
         <label for="animal-steri">Stérilisé: </label>
-        <input id="animal-steri" type="checkbox" name="sterilise" value="1">
+        <input id="animal-steri" type="checkbox" name="sterilise" <?php if($animal->sterilise == 1){echo "checked='checked'";} ?> value="1">
         <br>
         <label for="animal-chip">N° de puce: </label>
         <input id="animal-chip" type="text" name="puce" value="<?= $animal->puce; ?>">

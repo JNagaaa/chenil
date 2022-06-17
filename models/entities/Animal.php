@@ -4,6 +4,7 @@ class Animal extends Entity {
     protected $speakBehavior;
     protected $size;
     protected $location;
+
     protected $id;
     protected $nom;
     protected $sexe;
@@ -62,5 +63,3 @@ class Animal extends Entity {
         $this->location->location();
     }
 }
-
-

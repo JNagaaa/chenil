@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Séjours</title>
+    <link rel="stylesheet" href="css/chenil.css">
 </head>
 <body>
    <ul>

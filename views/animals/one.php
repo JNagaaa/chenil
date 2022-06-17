@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= $animal->nom; ?></title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="scripts/script.js"></script>
+    <link rel="stylesheet" href="css/chenil.css">
+    <title><?= $animal->nom; ?></title>
 </head>
 <body>
     <ul>
@@ -18,6 +19,7 @@
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
     <p>Type de l'animal: <?= $animal->type ?></p>
+    <div id=updateDelete>
     <form action="index.php" method="GET">
         <input type="hidden" name="ctlr" value="animals">
         <input type="hidden" name="action" value="edit">
@@ -31,6 +33,7 @@
         <input type="hidden" name="id" value="<?= $animal->id; ?>">
         <input type="submit" value="Supprimer">
     </form>
+    </div>
     <h3>Séjours planifiés: </h3>
     <?php if($animal->sejours) : ?>
     <?php foreach($animal->sejours as $otherSejour): ?>
@@ -45,7 +48,7 @@
     include('../models/entities/Strategy.php');
     if($animal->type == "Chat"){
         $cat = new Cat();
-        $cat->speak(); $cat->size(); $cat->location();
+        echo"<p>";$cat->speak(); $cat->size(); $cat->location();echo"</p>";
     }else if($animal->type == "Chien"){
         $dog = new Dog();
         $dog->speak(); $dog->size(); $dog->location();

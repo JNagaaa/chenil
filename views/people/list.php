@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/chenil.css">
     <title>Propriétaires</title>
 </head>
 <body>
