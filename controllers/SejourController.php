@@ -29,12 +29,12 @@ class SejourController extends Controller {
         $sejoursOnThisDate = [];
         $sejoursOnThisDateObject = Sejour::where('date', $data['date']);
        
-        if(isset($sejoursOnThisDateObject)){
+        if(isset($sejoursOnThisDateObject) && !empty($sejoursOnThisDateObject)){
             foreach($sejoursOnThisDateObject as $sejourOnThisDateObject){
                 array_push($sejoursOnThisDate, $sejourOnThisDateObject->animal->id);
             }
         }
-        
+        if($data['date'] == '"'){echo "Test";}
         $allSejoursDates = [];
         $allSejours = Sejour::all();
         foreach($allSejours as $sejourObject){
