@@ -6,12 +6,22 @@
     <title><?= $person->nom; ?></title>
 </head>
 <body>
-    <ul>
-        <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
-        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
-        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
-        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
-    </ul>
+<main role="main">
+<header>
+    <h1 class="header">L'Escale Canine</h1>
+</header>
+
+<nav>
+  <ul class="nav">
+    <li class="nav"><a href="index.php?ctlr=home&action=index">Accueil</a></li>
+    <li class="nav"><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+    <li class="nav"><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+    <li class="nav"><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+    <li class="nav"><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+  </ul>
+</nav>
+    <h2 id="title">Modification du propriétaire <?= $person->prenom ?> <?= $person->nom ?></h2>
+    <div id="form">
     <form action="index.php" method="post">
         <input type="hidden" name="id" value="<?= $person->id ?>">
         <input type="hidden" name="ctlr" value="people">
@@ -31,7 +41,10 @@
         <label for="person-phone">N° de téléphone: </label>
         <input id="person-phone" type="number" name="telephone" value="<?= $person->telephone; ?>">
         <br>
+        <br>
         <input type="submit" value="Modifier">
     </form>
+    </div>
+</main>
 </body>
 </html>

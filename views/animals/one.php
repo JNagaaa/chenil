@@ -8,13 +8,21 @@
     <title><?= $animal->nom; ?></title>
 </head>
 <body>
-    <ul>
-        <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
-        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
-        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
-        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+<main role="main">
+    <header>
+        <h1 class="header">L'Escale Canine</h1>
+    </header>
+    
+    <nav>
+    <ul class="nav">
+        <li class="nav"><a href="index.php?ctlr=home&action=index">Accueil</a></li>
+        <li class="nav"><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+        <li class="nav"><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+        <li class="nav"><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+        <li class="nav"><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
     </ul>
-    <h2><?= $animal->nom; ?></h2>
+</nav>
+    <h2 id="title"><?= $animal->nom; ?></h2>
     <p>Sexe: <?= $animal->sexe ?></p>
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
@@ -27,7 +35,7 @@
         <input type="submit" value="Modifier">
     </form>        
     
-    <form action="index.php" method="POST">
+    <form onsubmit="return confirm('Voulez-vous vraiment supprimer cet animal?');" action="index.php" method="POST">
         <input type="hidden" name="ctlr" value="animals">
         <input type="hidden" name="action" value="destroy">
         <input type="hidden" name="id" value="<?= $animal->id; ?>">
@@ -62,11 +70,7 @@
         <h3>Propriétaire: <a href="index.php?ctlr=people&action=show&id=<?= $animal->person->id ?>"><?= $animal->person->prenom; ?> <?= $animal->person->nom ?></h3></a>
         <?php else: false; ?>
     <?php endif; ?>
-        <button class="infosone">Autres animaux de <?= $animal->person->prenom ?> <?= $animal->person->nom ?></button>
-        <h4 id='titleotheranimals'></h4>
-        <div id="infosone">
-        <ul id="listotheranimals">
-
+        <h3>Autres animaux de ce propriétaire:</h3>
             <?php foreach($animal->person->animals as $other_animal): ?>
             <?php if ($other_animal->nom !== $animal->nom): ?>
                 <li><a href="index.php?ctlr=animals&action=show&id=<?= $other_animal->id; ?>"><?= $other_animal->nom ?></a></li>
@@ -74,6 +78,6 @@
             <?php endforeach; ?>
         </div>
         </ul>
-
+</main>
 </body>
 </html>

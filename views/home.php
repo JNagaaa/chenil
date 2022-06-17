@@ -7,18 +7,24 @@
     <link rel="stylesheet" href="css/chenil.css">
     <title>Document</title>
 </head>
-<header>
-</header>
-<nav>
-    <ul>
-        <li><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
-        <li><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
-        <li><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
-        <li><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
-    </ul>
-</nav>
 <body>
-    
+<main role="main">
+<header>
+    <h1 class="header">L'Escale Canine</h1>
+</header>
+
+<nav>
+  <ul class="nav">
+    <li class="nav"><a href="index.php?ctlr=home&action=index">Accueil</a></li>
+    <li class="nav"><a href="index.php?ctlr=animals&action=index">Animaux</a></li>
+    <li class="nav"><a href="index.php?ctlr=people&action=index">Propriétaires</a></li>
+    <li class="nav"><a href="index.php?ctlr=sejours&action=index">Séjours</a></li>
+    <li class="nav"><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
+  </ul>
+</nav>
+
+
+</main> 
 </body>
 </html>
 
