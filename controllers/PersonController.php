@@ -46,7 +46,7 @@ class PersonController extends Controller {
         if(!preg_match("#^[a-zA-Z'àâäéèêëîïôöûüÀÄÂÉÈÊÎÏÔÖÛÜoeæ-]+$#", $data['prenom'])){
             $_SESSION['error']['lastname'] = "Nom invalide";
         }
-        if (!str_contains($data['mail'], "@") || (strlen($data['mail'] > 10)) || !str_contains($data['mail'], ".")) {
+        if (!preg_match("/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/", $data['mail']) || (strlen($data['mail'] > 10))) {
             $_SESSION['error']['mailerror'] = "Mail envalide";
         }
         if($birthDate >= $todayDate || empty($birthDate) || !preg_match('/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/', $data['date']) == false){
