@@ -39,7 +39,7 @@ $people = Person::all();
                         <?php foreach($animals as $animal): ?>
                             <p><li><a href="index.php?ctlr=animals&action=show&id=<?= $animal->id; ?>"><?= $animal->nom; ?></a> (propriétaire: <?= $animal->person->prenom ?> <?= $animal->person->nom ?>)</li></p>
                             <?php if(isset($animal->sejours[0])) : ?>
-                                <p>Séjours prévus:</p>
+                                <p style="text-decoration: underline">Séjours prévus:</p>
                                 <?php foreach($animal->sejours as $sejour): ?>
                                     <ul>
                                         <li><?= $sejour->date; ?></li>
@@ -60,7 +60,7 @@ $people = Person::all();
                 <?php foreach($people as $person): ?>
                     <p><li><a href="index.php?ctlr=people&action=show&id=<?= $person->id; ?>"><?= $person->prenom; ?> <?= $person->nom; ?></a></li></p>
                     <?php if(isset($person->animals[0])) : ?>
-                        <p>Animaux de ce propriétaire:</p>
+                        <p style="text-decoration: underline">Animaux de ce propriétaire:</p>
                         <?php foreach($person->animals as $animalPerson): ?>
                             <ul>
                                 <li><?= $animalPerson->nom; ?></li>

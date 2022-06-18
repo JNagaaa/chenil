@@ -17,13 +17,6 @@ class PersonController extends Controller {
     }
     
     public function store ($data) {
-        //Je suis sur une version antérieure à PHP 8.1, la fonction str_contains n'existe donc pas et je dois la créer car j'en ai besoin pour la gestion d'erreurs du mail
-        if (!function_exists('str_contains')) {
-            function str_contains(string $haystack, string $needle): bool
-            {
-                return '' === $needle || false !== strpos($haystack, $needle);
-            }
-        }
         //Je convertis les dates d'aujourd'hui et de naissance du propriétaire pour pouvoir les comparer par après
         $todayDate = strtotime(date('Y-m-d'));
         $birthDate = strtotime($data['naissance']);
@@ -79,13 +72,6 @@ class PersonController extends Controller {
     }
 
     public function update($id, $data) {
-        //Je suis sur une version antérieure à PHP 8.1, la fonction str_contains n'existe donc pas et je dois la créer car j'en ai besoin pour la gestion d'erreurs du mail
-        if (!function_exists('str_contains')) {
-            function str_contains(string $haystack, string $needle): bool
-            {
-                return '' === $needle || false !== strpos($haystack, $needle);
-            }
-        }
         $todayDate = strtotime(date('Y-m-d'));
         $birthDate = strtotime($data['naissance']);
 

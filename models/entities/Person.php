@@ -23,8 +23,8 @@ class Person extends Entity {
     
     public function __toString () {
         return $this->nom;
-        return $this-> prenom;
-        return $this-> mail;
+        return $this->prenom;
+        return $this->mail;
     }
     
     public function __get ($prop) {

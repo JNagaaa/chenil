@@ -30,24 +30,28 @@
         <input id="person-name" type="text" name="nom" style="text-transform: capitalize;" value="<?= $person->nom; ?>">
         <?php if(isset($_SESSION['error']['name'])): ?><b><?php echo $_SESSION['error']['name'] ?></b><?php endif; ?>
         <br>
+        <br>
         <label for="person-surname">Prénom du propriétaire: </label>
         <input id="person-surname" type="text" name="prenom" style="text-transform: capitalize;" value="<?= $person->prenom; ?>">
         <?php if(isset($_SESSION['error']['lastname'])): ?><b><?php echo $_SESSION['error']['lastname'] ?></b><?php endif; ?>
+        <br>
         <br>
         <label for="person-birth">Date de naissance: </label>
         <input id="person-birth" type="date" name="naissance" value="<?= $person->naissance; ?>">
         <?php if(isset($_SESSION['error']['date'])): ?><b><?php echo $_SESSION['error']['date'] ?></b><?php endif; ?>
         <br>
+        <br>
         <label for="person-mail">Adresse mail: </label>
         <input id="person-mail" type="text" name="mail" value="<?= $person->mail; ?>">
         <?php if(isset($_SESSION['error']['mailerror'])): ?><b><?php echo $_SESSION['error']['mailerror'] ?></b><?php endif; ?>
+        <br>
         <br>
         <label for="person-phone">N° de téléphone: </label>
         <input id="person-phone" type="number" name="telephone" value="<?= $person->telephone; ?>">
         <?php if(isset($_SESSION['error']['phone'])): ?><b><?php echo $_SESSION['error']['phone'] ?></b><?php endif; ?>
         <br>
         <br>
-        <input type="submit" value="Modifier">
+        <input id="submit" type="submit" value="Modifier">
     </form>
     </div>
 </main>

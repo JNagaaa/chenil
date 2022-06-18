@@ -26,7 +26,7 @@
     <p>Sexe: <?= $animal->sexe ?></p>
     <p>Stérilisé: <?php if($animal->sterilise == 1): ?>Oui <?php else: ?> Non</p><?php endif; ?>
     <p>Numéro de puce: <?= $animal->puce ?></p>
-    <p>Date de naissance: <?= $animal->naissance ?></p>
+    <p>Date de naissance: <?= str_replace('-', '/', date('d-m-Y', strtotime($animal->naissance))); ?></p>
     <p>Type de l'animal: <?= $animal->type ?></p>
     <div id=updateDelete>
     <form action="index.php" method="GET">
@@ -46,7 +46,7 @@
     <h3>Séjours planifiés: </h3>
     <?php if($animal->sejours) : ?>
     <?php foreach($animal->sejours as $otherSejour): ?>
-               <li><a href="index.php?ctlr=sejours&action=show&id=<?= $otherSejour->id; ?>"><?= $otherSejour->date; ?></a></li>
+               <li><a href="index.php?ctlr=sejours&action=show&id=<?= $otherSejour->id; ?>"><?= str_replace('-', '/', date('d-m-Y', strtotime($otherSejour->date))); ?></a></li>
                <?php endforeach; ?>
             <?php else: ?>
                 <p>Aucun séjour de prévu pour <?= $animal->nom; ?>. <a href="index.php?ctlr=sejours&action=create">En planifier un</a>

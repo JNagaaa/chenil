@@ -23,13 +23,15 @@
     <h2 id="title">Modification de l'animal <?= $animal->nom ?></h2>
     <div id="form">
     <form action="index.php" method="post">
+        <fieldset>
+            <legend>Veuillez rentrer les informations</legend>
         <input type="hidden" name="id" value="<?= $animal->id ?>">
         <input type="hidden" name="ctlr" value="animals">
         <input type="hidden" name="action" value="update">
-        <br>
         <label for="animal-name">Nom de l'animal: </label>
         <input id="animal-name" type="text" name="nom" value="<?= $animal->nom; ?>"> 
         <?php if(isset($_SESSION['error']['name'])): ?><b><?php echo $_SESSION['error']['name'] ?></b><?php endif; ?>
+        <br>
         <br>
         <label for="animal-gender">Sexe de l'animal: </label>
         <select id="animal-gender" type="text" name="sexe" value="<?= $animal->sexe ?>">
@@ -38,17 +40,21 @@
         </select>
         <?php if(isset($_SESSION['error']['sexe'])): ?><b><?php echo $_SESSION['error']['sexe'] ?></b><?php endif; ?>
         <br>
+        <br>
         <label for="animal-steri">Stérilisé: </label>
         <input id="animal-steri" type="checkbox" name="sterilise" <?php if($animal->sterilise == 1){echo "checked='checked'";} ?> value="1">
         <?php if(isset($_SESSION['error']['steri'])): ?><b><?php echo $_SESSION['error']['steri'] ?></b><?php endif; ?>
+        <br>
         <br>
         <label for="animal-chip">N° de puce: </label>
         <input id="animal-chip" type="text" name="puce" value="<?= $animal->puce; ?>">
         <?php if(isset($_SESSION['error']['chip'])): ?><b><?php echo $_SESSION['error']['chip'] ?></b><?php endif; ?>
         <br>
+        <br>
         <label for="animal-birth">Date de naissance: </label>
         <input type="date" id="animal-birth" name="naissance" value="<?= $animal->naissance ?>">
         <?php if(isset($_SESSION['error']['date'])): ?><b><?php echo $_SESSION['error']['date'] ?></b><?php endif; ?>
+        <br>
         <br>
         <label for="animal-type">Type de l'animal: </label>
         <select id="animal-type" type="text" name="type" value="<?= $animal->type ?>">
@@ -57,6 +63,7 @@
             <option value="Oiseau">Oiseau</option>
         </select>
         <?php if(isset($_SESSION['error']['type'])): ?><b><?php echo $_SESSION['error']['type'] ?></b><?php endif; ?>
+        <br>
         <br>
         <label for="animal-proprio">Propriétaire de l'animal: </label>
         <select name="person_id" id="animal-proprio">
@@ -71,7 +78,8 @@
         <?php if(isset($_SESSION['error']['person'])): ?><b><?php echo $_SESSION['error']['person'] ?></b><?php endif; ?>
         <br>
         <br>
-        <input type="submit" value="Modifier">
+        <input id="submit" type="submit" value="Modifier">
+        </fieldset>
     </form>
     </div>
 </main>

@@ -40,7 +40,7 @@
                 <?php if(!in_array($sejour->date, $allSejoursDates, true)): array_push($allSejoursDates, $sejour->date); array_push($allSejours, $sejour); endif; endforeach; ?>
                 <?php foreach($allSejours as $oneSejour): ?>
                 <li>
-                    <p><a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= $oneSejour->date; ?></a> (<?= $nbSejoursByDate[$oneSejour->date]; ?>/10 places occupées)</p>
+                    <p><a href="index.php?ctlr=sejours&action=show&id=<?= $oneSejour->id; ?>"><?= str_replace('-', '/', date('d-m-Y', strtotime($oneSejour->date))); ?></a> (<?= $nbSejoursByDate[$oneSejour->date]; ?>/10 places occupées)</p>
                 </li>
             <?php endforeach; ?>
         </ul>

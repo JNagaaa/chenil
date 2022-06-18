@@ -22,11 +22,13 @@
 </nav>
     <h2 id="title">Animaux enregistrés:</h2>
     <?php if (isset($animals) && !empty($animals)): ?>
+        <div id="ul">
         <ul>
             <?php foreach($animals as $animal): ?>
                 <li><a href="index.php?ctlr=animals&action=show&id=<?= $animal->id; ?>"><?= $animal->nom; ?></a></li><br>
             <?php endforeach; ?>
         </ul>
+        </div>
     <?php else : ?>
         <p>Aucun animal n'est encore enregistré!</p>
     <?php endif; ?>

@@ -17,7 +17,7 @@ class Sejour extends Entity {
     }
     
     public function __toString () {
-        
+        return $this->date;
     }
     
     

@@ -28,7 +28,7 @@ foreach($allSejours as $sejourObject){
 }
 $nbSejoursByDate = array_count_values($allSejoursDates);
 ?>
-<h2 id="title">Date: <?= $sejour->date; ?> (<?= $nbSejoursByDate[$sejour->date]; ?>/10 places occupées)</h2>
+<h2 id="title">Date: <?= str_replace('-', '/', date('d-m-Y', strtotime($sejour->date))); ?> (<?= $nbSejoursByDate[$sejour->date]; ?>/10 places occupées)</h2>
 <?php if(isset($listAnimals) && !empty($listAnimals)): ?>
     <?php $animalsToPrint = Sejour::where('date', $sejour->date); ?>
     <?php foreach ($animalsToPrint as $animalToPrint) : ?>

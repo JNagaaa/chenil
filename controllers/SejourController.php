@@ -34,7 +34,7 @@ class SejourController extends Controller {
                 array_push($sejoursOnThisDate, $sejourOnThisDateObject->animal->id);
             }
         }
-        if($data['date'] == '"'){echo "Test";}
+
         $allSejoursDates = [];
         $allSejours = Sejour::all();
         foreach($allSejours as $sejourObject){

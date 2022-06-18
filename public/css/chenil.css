@@ -37,6 +37,7 @@ a {
 h1 {
     color:rgb(77, 64, 8);
     text-align: center;
+    font-family: cursive;
 }
 
 p,li, h3, h4 {
@@ -107,7 +108,10 @@ button {
     
 }
 
-
+input#submit {
+    display: flex;
+    justify-content: center;
+}
 
 input {
     border-radius: 20px;
@@ -116,14 +120,27 @@ input {
 
 fieldset {
     border: 5px solid rgba(54, 40, 8, 0.65);
-    border-style: dashed double none;
+    border-style: dashed double solid;
     text-align: left;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 
 legend {
     font-weight: 900;
     font-size: 1.3em;
-    color:rgb(46, 35, 0)
+    color:rgb(46, 35, 0);
+    text-align: center;
 }
 
+article:last-of-type{
+    border-left: 2px solid rgb(43, 36, 0);
+}
 
+article:first-of-type{
+    margin-right: 15px;
+}
+
+div.board {
+    border-bottom: 2px black;
+}
