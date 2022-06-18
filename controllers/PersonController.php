@@ -97,22 +97,22 @@ class PersonController extends Controller {
             $convertedPhone = preg_replace( '/' . 0 . '/', '' , $convertedPhone, 1);
         }
         if(!preg_match("#^[a-zA-Z'àâäéèêëîïôöûüÀÄÂÉÈÊÎÏÔÖÛÜoeæ-]+$#", $data['nom'])){
-            $_SESSION['error']['name'] = "name";
+            $_SESSION['error']['name'] = "Prénom invalide";
         }
         if(!preg_match("#^[a-zA-Z'àâäéèêëîïôöûüÀÄÂÉÈÊÎÏÔÖÛÜoeæ-]+$#", $data['prenom'])){
-            $_SESSION['error']['lastname'] = "lastname";
+            $_SESSION['error']['lastname'] = "Nom invalide";
         }
         if (!preg_match("/^[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+\\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/", $data['mail']) || (strlen($data['mail'] > 10))) {
-            $_SESSION['error']['mailerror'] = "mail";
+            $_SESSION['error']['mailerror'] = "Mail invalide";
         }
         if($birthDate >= $todayDate || empty($birthDate) || !preg_match('/^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/', $data['date']) == false){
-            $_SESSION['error']['date'] = "date";
+            $_SESSION['error']['date'] = "Date invalide";
         }
         if(substr($convertedPhone, 0, 2) != "47" || strlen($convertedPhone) != 9 || empty($data['telephone'])){
-            $_SESSION['error']['phone'] = "phone";
+            $_SESSION['error']['phone'] = "Numéro de téléphone invalide";
         }
         if(isset($_SESSION['error']) && !empty($_SESSION['error'])){
-            return header('Location: index.php?ctlr=people&action=index');
+            return header('Location: index.php?ctlr=people&action=edit&id='.$id);
         }
         else{
             $person = Person::find($id);

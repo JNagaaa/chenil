@@ -107,15 +107,23 @@ button {
     
 }
 
-label,input{
-    display: inline-block;
-    text-align: left;
-}
+
 
 input {
     border-radius: 20px;
     box-shadow: 8px 8px 12px rgba(0, 0, 0, 0.65);
 }
 
+fieldset {
+    border: 5px solid rgba(54, 40, 8, 0.65);
+    border-style: dashed double none;
+    text-align: left;
+}
+
+legend {
+    font-weight: 900;
+    font-size: 1.3em;
+    color:rgb(46, 35, 0)
+}
 
 

@@ -120,7 +120,7 @@ class AnimalController extends Controller {
             $_SESSION['error']['date'] = "Date invalide";
         }
         if(isset($_SESSION['error'])){
-            return header('Location: index.php?ctlr=animals&action=index');
+            return header('Location: index.php?ctlr=animals&action=edit&id='.$id);
         }else{
             $animal = Animal::find($id);
             if (!$animal) {

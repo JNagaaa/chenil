@@ -26,11 +26,9 @@
                         <legend>Veuillez rentrer les informations</legend>
                     <input type="hidden" name="ctlr" value="animals">
                     <input type="hidden" name="action" value="store">
-                    <fieldset>
                     <label for="animal-name">Nom de l'animal: </label>
                     <input id="animal-name" type="text" name="nom" style="text-transform: capitalize;" value="">
                     <?php if(isset($_SESSION['error']['name'])): ?><b><?php echo $_SESSION['error']['name'] ?></b><?php endif; ?>
-                    </fieldset>
                     <br>
                     <label for="animal-gender">Sexe de l'animal: </label>
                     <select id="animal-gender" type="text" name="sexe" value="">
@@ -68,7 +66,6 @@
                     <?php if(isset($_SESSION['error']['person'])): ?><b><?php echo $_SESSION['error']['person'] ?></b><?php endif; ?>
                     <br>
                     <br>
-                    </fieldset>
                     <input type="submit" value="Enregistrer l'animal">
                 </form>
             </div>

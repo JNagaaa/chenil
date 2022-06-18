@@ -20,7 +20,6 @@
         <li class="nav"><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
     </ul>
 </nav>
-   <?php if(isset($_SESSION['error'])): ?><b><p style="color:red">Les informations que vous avez tenté de modifier ne sont pas valides (<?php if(isset($_SESSION['error']['name'])): ?>nom<?php endif; if(count($_SESSION['error']) == 2): ?>, <?php endif; if(isset($_SESSION['error']['chip'])): ?>puce<?php endif; ?>)</p></b><?php endif; ?>
     <h2 id="title">Animaux enregistrés:</h2>
     <?php if (isset($animals) && !empty($animals)): ?>
         <ul>

@@ -21,9 +21,6 @@
     <li class="nav"><a href="index.php?ctlr=board&action=index">Tableau de bord</a></li>
   </ul>
 </nav>
-   <?php if(isset($_SESSION['error'])): ?>
-        <b><p style="color:red">Les informations que vous avez tenté de modifier ne sont pas valides</p></b>
-    <?php endif; ?>
     <?php if (isset($people) && !empty($people)): ?>
         <h2 id="title">Propriétaires enregistrés:</h2>
         <ul>
