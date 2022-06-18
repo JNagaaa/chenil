@@ -19,7 +19,6 @@ class SejourController extends Controller {
     }
     
     public function store ($data) {
-
         $allAnimalsId = [] ;
         $allAnimalsObject = Animal::all();
         foreach($allAnimalsObject as $animalObject){
@@ -46,8 +45,8 @@ class SejourController extends Controller {
         if($nbSejoursByDate[$data['date']] == 10){
             $_SESSION['error']['number'] = "error";
         }
-        if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date']) || empty($data['date'])){
-            $_SESSION['error']['date'] = "error";
+        if(!preg_match("/^[0-9]{4}-[0-9]{1,2}-[0-9]{1,2}$/", $data['date']) || empty($data['date']) || $data['date'] < date('Y-m-d')){
+            $_SESSION['error']['date'] = "Date invalide";
         }
         if(in_array($data['animal_id'], $sejoursOnThisDate)){
             $_SESSION['error']['doublon'] = "error";

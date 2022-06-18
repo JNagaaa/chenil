@@ -60,10 +60,10 @@
         echo"<p>";$cat->speak(); $cat->size(); $cat->location();echo"</p>";
     }else if($animal->type == "Chien"){
         $dog = new Dog();
-        $dog->speak(); $dog->size(); $dog->location();
+        echo"<p>";$dog->speak(); $dog->size(); $dog->location();echo"</p>";
     }else if($animal->type == "Oiseau"){
         $bird = new Bird();
-        $bird->speak(); $bird->size(); $bird->location();
+        echo"<p>";$bird->speak(); $bird->size(); $bird->location();echo"</p>";
     }
     ?>
 
@@ -75,8 +75,6 @@
             <?php foreach($animal->person->animals as $other_animal): ?>
             <?php if ($other_animal->nom !== $animal->nom): ?>
                 <li><a href="index.php?ctlr=animals&action=show&id=<?= $other_animal->id; ?>"><?= $other_animal->nom ?></a></li>
-            <?php else: ?>
-                <p>Pas d'autre animal</p>
             <?php endif; ?>
             <?php endforeach; ?>
         </div>

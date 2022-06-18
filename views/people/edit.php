@@ -22,7 +22,9 @@
 </nav>
     <h2 id="title">Modification du propriétaire <?= $person->prenom ?> <?= $person->nom ?></h2>
     <div id="form">
-    <form action="index.php" method="post">
+      <fieldset style="text-align: center;">
+        <legend>Veuillez rentrer les informations</legend>
+        <form action="index.php" method="post">
         <input type="hidden" name="id" value="<?= $person->id ?>">
         <input type="hidden" name="ctlr" value="people">
         <input type="hidden" name="action" value="update">
@@ -52,6 +54,7 @@
         <br>
         <br>
         <input id="submit" type="submit" value="Modifier">
+        </fieldset>
     </form>
     </div>
 </main>

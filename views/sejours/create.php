@@ -30,7 +30,7 @@
 
             <label for="sejour-date">Date du séjour: </label>
             <input type="date" id="sejour-date" name="date" value="">
-            <?php if(isset($_SESSION['error']['date'])) : ?><b><p style="color:red">Veuillez saisir une date valide</p></b><?php endif; ?>
+            <?php if(isset($_SESSION['error']['date'])): ?><b><?php echo $_SESSION['error']['date'] ?></b><?php endif; ?>
             <?php if(isset($_SESSION['error']['number'])) : ?><b><p style="color:red">Le chenil est déjà complet pour cette date</p></b><?php endif; ?>
             <?php if(isset($_SESSION['error']['doublon'])) : ?><b><p style="color:red">Animal déjà enregistré à cette date</p></b><?php endif; ?>
             <br>
