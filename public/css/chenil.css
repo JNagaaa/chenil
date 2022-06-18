@@ -132,15 +132,3 @@ legend {
     color:rgb(46, 35, 0);
     text-align: center;
 }
-
-article:last-of-type{
-    border-left: 2px solid rgb(43, 36, 0);
-}
-
-article:first-of-type{
-    margin-right: 15px;
-}
-
-div.board {
-    border-bottom: 2px black;
-}
