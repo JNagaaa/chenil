@@ -82,5 +82,8 @@
 </main>
 </body>
 </html>
-J'écris quelque chose ici
-Et j'écris encore autre chose à la ligne suivante
+<<<<<<< HEAD
+Et puis j'essaie de mettre autre chose ici
+=======
+Et puis j'essaie de mettre autre chose ici
+>>>>>>> test
