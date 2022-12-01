@@ -86,3 +86,4 @@
 </body>
 </html>
 <?php session_destroy(); ?>
+J'ajoute des choses
